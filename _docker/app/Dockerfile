@@ -28,4 +28,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 #ENV COMPOSER_ALLOW_SUPERUSER=1
 
 CMD ["php-fpm"]
+EXPOSE 9000
 # Install composer
