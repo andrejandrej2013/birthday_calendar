@@ -9,10 +9,10 @@ services:
       - ./:/var/www/
       - ./_docker/nginx/conf.d/:/etc/nginx/conf.d/
     depends_on:
-      - app
+      - php
     container_name: app_nginx
 
-  app:
+  php:
     build:
       context: .
       dockerfile: _docker/app/Dockerfile
@@ -21,7 +21,7 @@ services:
     user: 1000:1000
     depends_on:
       - postgres
-    container_name: app
+    container_name: php
 
   postgres:
     image: postgres
@@ -34,4 +34,4 @@ services:
       POSTGRES_DB: db
     ports:
       - "5432:5432"
-    container_name: postgres_db
+    container_name: postgres
